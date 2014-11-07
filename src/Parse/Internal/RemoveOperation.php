@@ -1,11 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
-use Parse\ParseClient;
-use Parse\ParseException;
-use Parse\ParseObject;
-
+require_once "FieldOperation.php";
 /**
  * Class RemoveOperation - FieldOperation for removing object(s) from array
  * fields

@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseCloud - Facilitates calling Parse Cloud functions
  *

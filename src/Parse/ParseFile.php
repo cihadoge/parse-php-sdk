@@ -1,14 +1,12 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseFile - Representation of a Parse File object.
  *
  * @package  Parse
  * @author   Fosco Marotto <fjm@fb.com>
  */
-class ParseFile implements \Parse\Internal\Encodable
+class ParseFile implements Encodable
 {
 
   /**

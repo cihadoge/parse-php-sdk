@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseException - Wrapper for \Exception class
  *

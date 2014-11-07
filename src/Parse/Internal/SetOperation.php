@@ -1,9 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
-use Parse\ParseClient;
-
+require_once "FieldOperation.php";
 /**
  * Class SetOperation - Operation to set a value for an object key.
  *

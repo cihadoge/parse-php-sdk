@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseMemoryStorage - Uses non-persisted memory for storage.
  * This is used by default if a PHP Session is not active.

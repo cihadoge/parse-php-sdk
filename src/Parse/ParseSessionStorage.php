@@ -1,7 +1,6 @@
 <?php
 
-namespace Parse;
-
+require_once "ParseStorageInterface.php";
 /**
  * ParseSessionStorage - Uses PHP session support for persistent storage.
  *

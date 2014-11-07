@@ -1,10 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
-use Parse\ParseClient;
-use Parse\ParseException;
-
+require_once "FieldOperation.php";
 /**
  * Class AddOperation - FieldOperation for adding object(s) to array fields
  *

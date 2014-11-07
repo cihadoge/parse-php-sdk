@@ -1,8 +1,12 @@
 <?php
 
-namespace Parse;
-
-use Parse\Internal\Encodable;
+require_once "ParseStorageInterface.php";
+require_once "ParseSessionStorage.php";
+require_once "ParseMemoryStorage.php";
+require_once "ParseException.php";
+require_once "ParseUser.php";
+require_once "ParseRole.php";
+require_once "ParseInstallation.php";
 
 /**
  * ParseClient - Main class for Parse initialization and communication
@@ -10,7 +14,7 @@ use Parse\Internal\Encodable;
  * @package  Parse
  * @author   Fosco Marotto <fjm@fb.com>
  */
-final class ParseClient
+class ParseClient
 {
 
   /**

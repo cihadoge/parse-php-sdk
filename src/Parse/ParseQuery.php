@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseQuery - Handles querying data from Parse
  *

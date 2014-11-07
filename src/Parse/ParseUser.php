@@ -1,7 +1,6 @@
 <?php
 
-namespace Parse;
-
+require_once "ParseObject.php";
 /**
  * ParseUser - Representation of a user object stored on Parse.
  *

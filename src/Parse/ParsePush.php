@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParsePush - Handles sending push notifications with Parse
  *

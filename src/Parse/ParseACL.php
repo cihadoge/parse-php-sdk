@@ -1,9 +1,5 @@
 <?php
 
-namespace Parse;
-
-use Parse\Internal\Encodable;
-
 /**
  * ParseACL - is used to control which users can access or modify a particular
  * object. Each ParseObject can have its own ParseACL. You can grant read and

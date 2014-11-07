@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseBytes - Representation of a Byte array for storage on a Parse Object.
  *

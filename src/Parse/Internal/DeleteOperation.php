@@ -1,7 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
+require_once "FieldOperation.php";
 /**
  * Class DeleteOperation - FieldOperation to remove a key from an object.
  *

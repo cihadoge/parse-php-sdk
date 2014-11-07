@@ -1,74 +1,41 @@
-Parse PHP SDK
+Parse PHP SDK for Codeigniter Framework
 -------------
 
 The Parse PHP SDK gives you access to the powerful Parse cloud platform
 from your PHP app or script.
+This fork is modified code for Codeigniter framework.
 
 Installation
 ------------
 
-[Get Composer], the PHP package manager.  Then create a composer.json file in
- your projects root folder, containing:
+Download this repo.
+Unzip files.
+Copy parse-php-sdk folder to your application/libraries folder.
 
-```json
-{
-  "require": {
-    "parse/php-sdk" : "1.0.*"
-  }
-}
-```
-
-Run "composer install" to download the SDK and set up the autoloader,
-and then require it from your PHP script:
-
-```php
-require 'vendor/autoload.php';
-```
-
-Alternative Method
-------------------
-
-If you don't want to use Composer, you can include the ```autoload.php```
-file in your code to automatically load the Parse SDK classes.
-
-```php
-require 'autoload.php';
-```
 
 Initialization
 ---------------
 
-After including the required files from the SDK, you need to initalize the ParseClient using your Parse API keys:
+Load library in your controller or model file where you want to use Parse.
 
 ```php
-ParseClient::initialize( $app_id, $rest_key, $master_key );
+$this->load->library('parse-php-sdk/src/Parse/ParseClient');
+$this->parseclient->initialize( PARSE_APP_ID, PARSE_REST_KEY, PARSE_MASTER_KEY );
 ```
 
 Usage
 -----
 
-Check out the [Parse PHP Guide] for the full documentation.
-
-Add the "use" declarations where you'll be using the classes.  For all of the
-sample code in this file:
+Import corresponding file where you'll be using the classes.
 
 ```php
-use Parse\ParseObject;
-use Parse\ParseQuery;
-use Parse\ParseACL;
-use Parse\ParsePush;
-use Parse\ParseUser;
-use Parse\ParseInstallation;
-use Parse\ParseException;
-use Parse\ParseAnalytics;
-use Parse\ParseFile;
-use Parse\ParseCloud;
+$this->load->library('parse-php-sdk/src/Parse/ParseObject');
 ```
 
 Objects:
 
 ```php
-$object = ParseObject::create("TestObject");
+$object = $this->parseobject->create("TestObject");
 $objectId = $object->getObjectId();
 $php = $object->get("elephant");
 
@@ -84,86 +51,43 @@ $object->setAssociativeArray(
 $object->save();
 ```
 
-Users:
+Users: (Not available for now)
 
-```php
-// Signup
-$user = new ParseUser();
-$user->setUsername("foo");
-$user->setPassword("Q2w#4!o)df");
-try {
-  $user->signUp();
-} catch (ParseException $ex) {
-  // error in $ex->getMessage();
-}
 
-// Login
-try {
-  $user = ParseUser::logIn("foo", "Q2w#4!o)df");
-} catch(ParseException $ex) {
-  // error in $ex->getMessage();
-}
+Security: (Not available for now)
 
-// Current user
-$user = ParseUser::getCurrentUser();
-```
 
-Security:
+Queries: (Not available for now)
 
-```php
-// Access only by the ParseUser in $user
-$userACL = ParseACL::createACLWithUser($user);
-
-// Access only by master key
-$restrictedACL = new ParseACL();
-
-// Set individual access rights
-$acl = new ParseACL();
-$acl->setPublicReadAccess(true);
-$acl->setPublicWriteAccess(false);
-$acl->setUserWriteAccess($user, true);
-$acl->setRoleWriteAccessWithName("PHPFans", true);
-```
-
-Queries:
-
-```php
-$query = new ParseQuery("TestObject");
-
-// Get a specific object:
-$object = $query->get("anObjectId");
-
-$query->limit(10); // default 100, max 1000
-
-// All results:
-$results = $query->find();
-
-// Just the first result:
-$first = $query->first();
-
-// Process ALL (without limit) results with "each".
-// Will throw if sort, skip, or limit is used.
-$query->each(function($obj) {
-  echo $obj->getObjectId();
-});
-```
 
 Cloud Functions:
 
 ```php
-$results = ParseCloud::run("aCloudFunction", array("from" => "php"));
+$this->load->library('parse-php-sdk/src/Parse/ParseCloud');
+```
+
+```php
+$results = $this->parsecloud->run("aCloudFunction", array("from" => "php"));
 ```
 
 Analytics:
 
 ```php
-PFAnalytics::trackEvent("logoReaction", array(
+$this->load->library('parse-php-sdk/src/Parse/ParseAnalytics');
+```
+
+```php
+$this->parseanalytics->track("logoReaction", array(
   "saw" => "elephant",
   "said" => "cute"
 ));
 ```
 
 Files:
+
+```php
+$this->load->library('parse-php-sdk/src/Parse/ParseFile');
+```
 
 ```php
 // Get from a Parse Object:
@@ -174,39 +98,25 @@ $url = $file->getURL();
 $contents = $file->getData();
 
 // Upload from a local file:
-$file = ParseFile::createFromFile(
+$file = $this->parsefile->createFromFile(
   "/tmp/foo.bar", "Parse.txt", "text/plain"
 );
 
 // Upload from variable contents (string, binary)
-$file = ParseFile::createFromData($contents, "Parse.txt", "text/plain");
+$file = $this->parsefile->createFromData($contents, "Parse.txt", "text/plain");
 ```
 
 Push:
 
 ```php
+$this->load->library('parse-php-sdk/src/Parse/ParseFile');
+```
+
+```php
 $data = array("alert" => "Hi!");
 
 // Push to Channels
-ParsePush::send(array(
+$this->parsepush->send(array(
   "channels" => ["PHPFans"],
   "data" => $data
 ));
-
-// Push to Query
-$query = ParseInstallation::query();
-$query->equalTo("design", "rad");
-ParsePush::send(array(
-  "where" => $query,
-  "data" => $data
-));
-```
-
-Contributing / Testing
-----------------------
-
-See the CONTRIBUTORS.md file for information on testing and contributing to
-the Parse PHP SDK.  We welcome fixes and enhancements.
-
-[Get Composer]: https://getcomposer.org/download/
-[Parse PHP Guide]: https://www.parse.com/docs/php_guide

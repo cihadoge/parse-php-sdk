@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse\Internal;
-
 /**
  * Class Encodable - Interface for Parse Classes which provide an encode
  * method.

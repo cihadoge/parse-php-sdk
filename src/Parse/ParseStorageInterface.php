@@ -1,7 +1,5 @@
 <?php
 
-namespace Parse;
-
 /**
  * ParseStorageInterface - Specifies an interface for implementing persistence.
  *

@@ -1,18 +1,14 @@
 <?php
 
-namespace Parse;
-
-use Parse\Internal\Encodable;
-use Parse\Internal\RemoveOperation;
-use Parse\Internal\FieldOperation;
-use Parse\Internal\SetOperation;
-use Parse\Internal\AddOperation;
-use Parse\Internal\AddUniqueOperation;
-use Parse\Internal\IncrementOperation;
-use Parse\Internal\DeleteOperation;
-
-use \Exception;
-
+require_once "Internal/AddOperation.php";
+require_once "Internal/AddUniqueOperation.php";
+require_once "Internal/DeleteOperation.php";
+require_once "Internal/Encodable.php";
+require_once "Internal/FieldOperation.php";
+require_once "Internal/IncrementOperation.php";
+require_once "Internal/ParseRelationOperation.php";
+require_once "Internal/RemoveOperation.php";
+require_once "Internal/SetOperation.php";
 /**
  * ParseObject - Representation of an object stored on Parse.
  *
@@ -84,6 +80,7 @@ class ParseObject implements Encodable
     if (!$className && $subclass !== false) {
       $className = $subclass;
     }
+    echo $subclass;
     if ($class !== __CLASS__ && $className !== $subclass) {
       throw new Exception(
         'You must specify a Parse class name or register the appropriate ' .

@@ -1,9 +1,5 @@
 <?php
 
-namespace Parse;
-
-use Parse\ParseObject;
-
 /**
  * ParseRole - Representation of an access Role.
  *

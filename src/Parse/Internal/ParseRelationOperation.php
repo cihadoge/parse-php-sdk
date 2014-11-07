@@ -1,10 +1,5 @@
 <?php
 
-namespace Parse\Internal;
-use Parse\ParseObject;
-use Parse\ParseRelation;
-use Parse\ParseClient;
-
 /**
  * ParseRelationOperation - A class that is used to manage ParseRelation changes such as object add or remove.
  *

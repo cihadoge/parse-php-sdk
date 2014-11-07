@@ -1,7 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
+require_once "Encodable.php";
 /**
  * Class FieldOperation - Interface for all Parse Field Operations.
  *

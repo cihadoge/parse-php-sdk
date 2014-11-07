@@ -1,9 +1,5 @@
 <?php
 
-namespace Parse;
-
-use \Exception;
-
 /**
  * ParseAnalytics - Handles sending app-open and custom analytics events
  *

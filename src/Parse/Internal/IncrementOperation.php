@@ -1,9 +1,6 @@
 <?php
 
-namespace Parse\Internal;
-
-use Parse\ParseException;
-
+require_once "FieldOperation.php";
 /**
  * Class IncrementOperation - Operation to increment numeric object key.
  *

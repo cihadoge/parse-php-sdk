@@ -1,9 +1,5 @@
 <?php
 
-namespace Parse;
-
-use Parse\ParseObject;
-
 /**
  * ParseInstallation - Representation of an Installation stored on Parse.
  *
